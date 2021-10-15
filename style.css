@@ -13,7 +13,6 @@ html,body{
     text-align: center;
 }
 
-/* 只有在 .container 裡面的 --pink */
 .container{
     width: 450px;
     --black: #111;
@@ -23,6 +22,8 @@ html,body{
     padding: 20px 25px;
     box-shadow: 2px 31px 35px -15px rgba(0, 0, 0, 0.64);
 }
+
+/* 產生器的樣式 */
 
 .container .text{
     color: #ccc;

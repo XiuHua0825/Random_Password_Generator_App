@@ -1,0 +1,20 @@
+.container_theme{
+    width: 150px;
+    --blue: rgb(106, 145, 196);
+    background: var(--blue);
+    border: 1px, solid #444;
+    border-radius: 30px;
+    padding: 20px 25px;
+    margin-left: 10px;
+    box-shadow: 2px 31px 35px -15px rgba(0, 0, 0, 0.5);
+}
+
+/* 切換主題開關的樣式 */
+.container_theme span{
+    color: #abe22b;
+}
+
+:root{
+    --dark:  #1b1e3a;
+    --light: #8d98c9;
+}
