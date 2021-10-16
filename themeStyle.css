@@ -1,20 +1,106 @@
 .container_theme{
-    width: 150px;
-    --blue: rgb(106, 145, 196);
-    background: var(--blue);
-    border: 1px, solid #444;
-    border-radius: 30px;
-    padding: 20px 25px;
-    margin-left: 10px;
-    box-shadow: 2px 31px 35px -15px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 25px;
+    right: 25px;
 }
 
-/* 切換主題開關的樣式 */
-.container_theme span{
-    color: #abe22b;
+/* 設定unchecked(未選取)的樣式 */
+/* 不顯示勾選方塊 */
+input[type="checkbox"]{
+    display: none;
 }
+
+/* 設定unChecked(未選取)的樣式，當未選擇時套用此樣式(lightMode)，標籤文字顯示另一個樣式(darkMode) */
+
+/* 設定開關的按鈕樣式 */
+/* X + Y = 選取緊鄰的同層元素 */
+input[type="checkbox"] + label::before{
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    top: 10px;
+    left: 10px;
+    border-radius: 20rem;
+    background: var(--light-toggle);
+    transition: var(--trans);
+    transform: translateX(0px);
+}
+
+/* 取消勾選時將開關按鈕圖示移到左側，並將按鈕套用亮色模式 */
+input[type="checkbox"] + label{
+    position: relative;
+    cursor: pointer;
+    width: 95px;
+    height: 35px;
+    display: block;
+    border-radius: 20rem;
+    color: var(--light-text);
+    background: var(--light-bg);
+    transition: var(--trans);
+}
+
+/* X + Y 元素.class名稱 = 選取緊鄰的同層元素的指定子元素 */
+input[type="checkbox"] + label span.lightMode{
+    display: none;
+}
+
+input[type="checkbox"] + label span.darkMode{
+    display: inline;
+}
+
+/* X + Y 元素 = 選取緊鄰的同層元素的子元素 */
+input[type="checkbox"] + label span{
+    position: absolute;
+    top: var(--toggleBtn-top);
+    left: var(--toggleBtn-left);
+}
+
+/* 設定checked(已選取)的樣式，當選擇時套用此樣式(darkMode)，標籤文字顯示另一個樣式(lightMode) */
+input[type="checkbox"]:checked + label{
+    color: var(--dark-text);
+    background: var(--dark-bg);
+}
+
+/* 勾取時將開關按鈕圖示移到右側 */
+input[type="checkbox"]:checked + label::before {
+    background: var(--dark-toggle);
+    transition: var(--trans);
+    transform: translateX(59px);
+}
+
+input[type="checkbox"]:checked + label span.lightMode{
+    display: inline;
+}
+
+input[type="checkbox"]:checked + label span.darkMode{
+    display: none;
+}
+
+input[type="checkbox"]:checked + label span{
+    margin-right: 16px;
+    margin-left: -13px;
+}
+
+/* 設定indeterminate(部分選取)的樣式 */
+/* input[type="checkbox"]:indeterminate{
+    
+} */
 
 :root{
-    --dark:  #1b1e3a;
-    --light: #8d98c9;
+    /* lightMode color style */
+    --light-text:  #5a6aad;
+    --light-bg: #d1d9ff;
+    --light-toggle: #5a6aad;
+
+    /* darkMode color style */
+    --dark-text: #d1d9ff;
+    --dark-bg: #5a6aad;
+    --dark-toggle: #d1d9ff;
+
+    /* common style */
+    --trans: 0.3s ease;
+    --toggleBtn-top: 25%;
+    --toggleBtn-left: 35px;
 }
