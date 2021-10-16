@@ -1,7 +1,6 @@
 .container_theme{
-    position: absolute;
-    top: 25px;
-    right: 25px;
+    position: relative;
+    margin: 4%;
 }
 
 /* 設定unchecked(未選取)的樣式 */
@@ -58,6 +57,7 @@ input[type="checkbox"] + label span{
 }
 
 /* 設定checked(已選取)的樣式，當選擇時套用此樣式(darkMode)，標籤文字顯示另一個樣式(lightMode) */
+
 input[type="checkbox"]:checked + label{
     color: var(--dark-text);
     background: var(--dark-bg);
@@ -87,6 +87,20 @@ input[type="checkbox"]:checked + label span{
 /* input[type="checkbox"]:indeterminate{
     
 } */
+
+/* 設定密碼產生器(未選取)的樣式，當未選擇時套用此樣式(lightMode)，標籤文字顯示另一個樣式(darkMode) */
+
+.container_generator{
+    color: var(--light-text);
+    background: var(--light-bg);
+}
+
+/* 勾選時將主樣式套用深色模式 */
+/* X ~ .class名稱 = 選取在元素之後的指定元素 */
+input[type="checkbox"]:checked ~ .container_generator{
+    color: var(--dark-text);
+    background: var(--dark-bg);
+}
 
 :root{
     /* lightMode color style */
